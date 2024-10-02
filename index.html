@@ -68,13 +68,6 @@ button:hover {
 function addRow() {
     const newRow = document.createElement("tr");
     newRow.innerHTML = `
-        <td><input type="text" placeholder="Name"></td>
-        <td><select>
-            <option value="Running">Running</option>
-            <option value="Failed">Failed</option>
-            <option value="Ended">ended</option>
-        </select></td>
-        <td><button class="delete-btn">Delete</button></td>
     `;
     statusTable.querySelector("tbody").appendChild(newRow);
 }
