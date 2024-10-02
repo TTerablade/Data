@@ -63,29 +63,22 @@
   <button onclick="addRow()">Add Row</button>
 
   <script>
-    const statusTable = document.getElementById("statusTable");
+ const statusTable = document.getElementById("statusTable");
 
-    function addRow(name = "", status = "") {
-      const newRow = document.createElement("tr");
-      newRow.innerHTML = `
-      <select>
-          <option value="Running" ${status === "Running" ? "selected" : ""}>Running</option>
-          <option value="Failed" ${status === "Failed" ? "selected" : ""}>Failed</option>
-          <option value="Ended" ${status === "Ended" ? "selected" : ""}>Ended</option>
-        </select></td>
-        <td><button class="delete-btn">Delete</button></td>
-      `;
+// Add predefined rows
+addRow("wikifoods", "Running");
+addRow("another-service", "Failed");
 
-      statusTable.querySelector("tbody").appendChild(newRow);
-    }
+// Remove the "Add Row" button and disable input/select elements
+document.querySelector("button[onclick='addRow()']").style.display = "none";
+statusTable.querySelectorAll("input, select").forEach(element => {
+  element.disabled = true;
+});
 
-    // Add predefined rows
-    addRow("wikifoods", "Running");
-    addRow("another-service", "Failed");
-
-
-      }
-    });
+// Remove the "Delete" buttons from all rows
+statusTable.querySelectorAll(".delete-btn").forEach(btn => {
+  btn.parentNode.parentNode.removeChild(btn);
+});
   </script>
 </body>
 </html>
