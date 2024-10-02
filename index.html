@@ -68,8 +68,7 @@
     function addRow(name = "", status = "") {
       const newRow = document.createElement("tr");
       newRow.innerHTML = `
-        <td><input type="text" value="${name}" placeholder="Name"></td>
-        <td><select>
+      <select>
           <option value="Running" ${status === "Running" ? "selected" : ""}>Running</option>
           <option value="Failed" ${status === "Failed" ? "selected" : ""}>Failed</option>
           <option value="Ended" ${status === "Ended" ? "selected" : ""}>Ended</option>
@@ -84,9 +83,7 @@
     addRow("wikifoods", "Running");
     addRow("another-service", "Failed");
 
-    statusTable.addEventListener("click", (event) => {
-      if (event.target.classList.contains("delete-btn")) {
-        event.target.parentNode.parentNode.remove();
+
       }
     });
   </script>
