@@ -87,8 +87,10 @@
     const statusTable = document.getElementById("statusTable");
 
     // Add predefined rows
-    addRow("wikifoods", "Running");
-    addRow("another-service", "Failed");
+    addRow("wikifoods App (Windows) ", "Running");
+    addRow("Website HTML", "Running");
+    addRow("Web server", "Running");
+     addRow("Wikifoods App (Linux)", "Stoped");
 
     // Function to add a new row
     function addRow(name = "", status = "") {
@@ -112,6 +114,9 @@
       const warningOption = document.createElement("option");
       warningOption.value = "Warning";
       warningOption.text = "Warning";
+      const warningOption = document.createElement("option");
+      warningOption.value = "Stoped";
+      warningOption.text = "Stoped;
       statusSelect.appendChild(runningOption);
       statusSelect.appendChild(failedOption);
       statusSelect.appendChild(warningOption);
