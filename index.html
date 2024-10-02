@@ -70,14 +70,7 @@ addRow("wikifoods", "Running");
 addRow("another-service", "Failed");
 
 // Remove the "Add Row" button and disable input/select elements
-document.querySelector("button[onclick='addRow()']").style.display = "none";
-statusTable.querySelectorAll("input, select").forEach(element => {
-  element.disabled = true;
-});
 
-// Remove the "Delete" buttons from all rows
-statusTable.querySelectorAll(".delete-btn").forEach(btn => {
-  btn.parentNode.parentNode.removeChild(btn);
 });
   </script>
 </body>
