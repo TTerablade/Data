@@ -1,44 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Searchable Database</title>
+    <title>Server Status Spreadsheet</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search..">
     <table>
         <thead>
             <tr>
-                <th>Field 1</th>
-                <th>Field 2</th>
-                <th>Field 3</th>
+                <th>Server Name</th>
+                <th>Status</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="serverTableBody">
             </tbody>
     </table>
-
-    <script>
-    function myFunction() {
-        // Declare variables
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("myTable");
-        tr = table.getElementsByTagName("tr");
-
-        // Loop through all table rows
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
-    </script>
+    <button onclick="addRow()">Add Row</button>
 </body>
+<script>
+    function addRow() {
+        var table = document.getElementById("serverTableBody");
+        var row = table.insertRow(-1);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        cell1.innerHTML = "<input type='text' placeholder='Server Name'>";
+        cell2.innerHTML = "<select><option>Online</option><option>Offline</option></select>";
+    }
+</script>
 </html>
