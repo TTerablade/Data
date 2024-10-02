@@ -67,8 +67,8 @@
     }
   </style>
 </head>
-  <h1>Edits or chnages do not auto apply</h1>
 <body>
+  <h1>TSA Status Spreadsheet</h1>
   <table id="statusTable">
     <thead>
       <tr>
@@ -85,12 +85,6 @@
 
   <script>
     const statusTable = document.getElementById("statusTable");
-
-    // Add predefined rows
-    addRow("wikifoods App (Windows) ", "Running");
-    addRow("Website HTML", "Running");
-    addRow("Web server", "Running");
-     addRow("Wikifoods App (Linux)", "Stoped");
 
     // Function to add a new row
     function addRow(name = "", status = "") {
@@ -114,12 +108,13 @@
       const warningOption = document.createElement("option");
       warningOption.value = "Warning";
       warningOption.text = "Warning";
-      const warningOption = document.createElement("option");
-      warningOption.value = "Stoped";
-      warningOption.text = "Stoped;
+      const stoppedOption = document.createElement("option");
+      stoppedOption.value = "Stopped";
+      stoppedOption.text = "Stopped";
       statusSelect.appendChild(runningOption);
       statusSelect.appendChild(failedOption);
       statusSelect.appendChild(warningOption);
+      statusSelect.appendChild(stoppedOption);
       statusSelect.value = status;
       statusCell.appendChild(statusSelect);
 
@@ -131,6 +126,12 @@
       });
       actionCell.appendChild(deleteButton);
     }
+
+    // Predefined rows
+    addRow("wikifoods App (Windows)", "Running");
+    addRow("Website HTML", "Running");
+    addRow("Web server", "Running");
+    addRow("Wikifoods App (Linux)", "Stopped");
   </script>
 </body>
 </html>
